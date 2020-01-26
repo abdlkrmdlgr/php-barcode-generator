@@ -1,5 +1,6 @@
 <?php
 
+require_once "Dimensions.php";
 class Code128Barcode
 {
 
@@ -51,7 +52,7 @@ class Code128Barcode
         //Both will be assembled in the loop
 
         $checksum = self::CODE128B_START_BASE;
-        $encoding = array(self::CODES[self::CODE128B_START_BASE]);
+        $encoding = array(self::CODES[$checksum]);
 
         //Add Code 128 values from ASCII values found in $code
 
@@ -106,7 +107,7 @@ class Code128Barcode
      * @param $code
      * @return Dimensions
      */
-    private static function getDimensions($density, $code): Dimensions
+    private static function getDimensions($code, $density): Dimensions
     {
 
         // Get the width and height of the barcode
